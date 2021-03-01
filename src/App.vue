@@ -1,11 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <MyForm />
+    <TourModal v-model="modalOpen"/>
+    <button class="btn" @click="openModal">Open Modal</button>
 </template>
 
-<script setup>
-import MyForm from './components/MyForm.vue'
-
+<script>
+  import TourModal from './components/TourModal.vue'
+  export default {
+        components: {
+          TourModal
+        },
+        data() {
+          return {
+            modalOpen: false
+          };
+        },
+        methods: {
+          openModal() {
+              this.modalOpen = !this.modalOpen;
+          }    
+        }
+      };
 </script>
 
 <style>
@@ -16,5 +30,6 @@ import MyForm from './components/MyForm.vue'
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  height: 100vh;
 }
 </style>
